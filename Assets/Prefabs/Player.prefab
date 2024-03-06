@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 593366270952494399}
   - component: {fileID: 27649615734388085}
   m_Layer: 0
-  m_Name: XR Origin (XR Rig) Player Camera
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
