@@ -2,7 +2,7 @@
     "name": "Inputs",
     "maps": [
         {
-            "name": "New action map",
+            "name": "Movement",
             "id": "2fae0a3d-ea1a-4b80-960e-970eb75fd23b",
             "actions": [
                 {
@@ -11,7 +11,7 @@
                     "id": "4dcb3369-3e93-4f4f-885b-9027a007679e",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press",
                     "initialStateCheck": false
                 }
             ],
