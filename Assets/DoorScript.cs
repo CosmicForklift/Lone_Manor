@@ -7,9 +7,12 @@ using Vector3 = UnityEngine.Vector3;
 
 public class DoorScript : MonoBehaviour
 {
-    private Vector3 shift;
+    private float rotationSpeed = 0f;
 
     public GameObject pivotObject;
+
+    private bool doorOpen = false; 
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -19,20 +22,30 @@ public class DoorScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.RotateAround(pivotObject.transform.position, new Vector3(0, -1, 0), rotationSpeed * Time.deltaTime);
+
+        if (transform.rotation.y <= -90)
+        {
+            rotationSpeed = 0f; 
+        }
     }
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.transform.tag == "Key")
+        if (other.transform.tag == "Key" && doorOpen == false)
         {
             Debug.Log("Key detected");
-            transform.position = new Vector3(transform.position.x, transform.position.y + 5, transform.position.z);
-          // transform.RotateAround(pivotObject.transform.position, Vector3.up, 20 * Time.deltaTime); 
+            doorOpen = true; 
+            StartCoroutine(Open());
            //Destroy(other);
         }
-
-            
-        throw new NotImplementedException();
     }
+
+    private IEnumerator Open()
+    {
+        rotationSpeed = 180f;
+        yield return new WaitForSeconds(0.5f);
+        rotationSpeed = 0f;
+    }
+    
 }
