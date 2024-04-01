@@ -1976,7 +1976,7 @@ GameObject:
   - component: {fileID: 1127291128}
   - component: {fileID: 1127291127}
   m_Layer: 0
-  m_Name: w
+  m_Name: Roof
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
