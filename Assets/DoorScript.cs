@@ -11,6 +11,10 @@ public class DoorScript : MonoBehaviour
 
     public GameObject pivotObject;
 
+    public GameObject _key;
+
+    public GameObject _door; 
+
     private bool doorOpen = false; 
     
     // Start is called before the first frame update
@@ -22,7 +26,7 @@ public class DoorScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.RotateAround(pivotObject.transform.position, new Vector3(0, -1, 0), rotationSpeed * Time.deltaTime);
+        _door.transform.RotateAround(pivotObject.transform.position, new Vector3(0, -1, 0), rotationSpeed * Time.deltaTime);
 
         if (transform.rotation.y <= -90)
         {
@@ -30,14 +34,15 @@ public class DoorScript : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnCollisionEnter(Collision _key)
     {
-        if (other.transform.tag == "Key" && doorOpen == false)
+        if (doorOpen == false)
         {
+
             Debug.Log("Key detected");
-            doorOpen = true; 
+            doorOpen = true;
             StartCoroutine(Open());
-           //Destroy(other);
+            Destroy(this._key);
         }
     }
 
