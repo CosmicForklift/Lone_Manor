@@ -37,19 +37,19 @@ public class FenceGateDoor : MonoBehaviour
         
         if (doorOpen == false)
         {
-
-            
             doorOpen = true;
             StartCoroutine(Open());
             Destroy(this._key);
+            transform.position = Vector3.down;
         }
     }
  
     private IEnumerator Open()
     {
-        rotationSpeed = 180f;
-        yield return new WaitForSeconds(0.5f);
+        rotationSpeed = 90f;
+        yield return new WaitForSeconds(1f);
         rotationSpeed = 0f;
+        Destroy(gameObject);
     }
     
 }
