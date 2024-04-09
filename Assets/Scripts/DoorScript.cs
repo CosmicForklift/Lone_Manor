@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
+using Unity.VisualScripting;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
@@ -21,6 +22,7 @@ public class DoorScript : MonoBehaviour
     void Start()
     {
         //_axisObject = GetComponent<Transform>();
+        Debug.Log("The key's ID is " + _key.GetInstanceID());
     }
 
     // Update is called once per frame
@@ -34,18 +36,30 @@ public class DoorScript : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision _key)
+    private void OnTriggerEnter(Collider other)
     {
-        if (doorOpen == false)
+        Debug.Log("THe ID of other is " + other.GetInstanceID());
+       // if (other.CompareTag("Key"))
+            if (other.GameObject() == _key.GameObject())
         {
-
-            Debug.Log("Key detected");
-            doorOpen = true;
-            StartCoroutine(Open());
-            Destroy(this._key);
-        }
+            
+                Debug.Log("The ID's are the same");
+                
+                if (doorOpen == false)
+                {
+                                                        
+                                Debug.Log("Key detected");
+                                doorOpen = true;
+                                StartCoroutine(Open());
+                                Destroy(_key);
+                }
+            
+        } 
     }
 
+    /*
+                */
+    
     private IEnumerator Open()
     {
         rotationSpeed = 180f;
