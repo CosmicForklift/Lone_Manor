@@ -29,6 +29,7 @@ public class ButtonManager : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("It worked less!!!!!");
+        buttonPressed();
         if (other.CompareTag("Player"))
         {
             Debug.Log("It worked!!!!!");
@@ -37,16 +38,22 @@ public class ButtonManager : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (pressed == false)
-        {
-            pressed = true;
-            transform.position = new Vector3(transform.position.x - 0.15f, transform.position.y, transform.position.z);
-            StartCoroutine(Open());
-            Debug.Log("Button has been pressed");
-            
-            
-            
-        }
+        Debug.Log(other);
+       buttonPressed();
+    }
+
+    private void buttonPressed()
+    {
+         if (pressed == false)
+                {
+                    pressed = true;
+                    transform.position = new Vector3(transform.position.x - 0.15f, transform.position.y, transform.position.z);
+                    StartCoroutine(Open());
+                    Debug.Log("Button has been pressed");
+                    
+                    
+                    
+                }
     }
     
     private IEnumerator Open()

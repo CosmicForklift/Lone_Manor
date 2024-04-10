@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FenceGateDoor : MonoBehaviour
@@ -31,11 +32,11 @@ public class FenceGateDoor : MonoBehaviour
         _doorRight.transform.RotateAround(_axisRight.transform.position, new Vector3(0, 1, 0), rotationSpeed * Time.deltaTime);
     }
     
-    private void OnCollisionEnter(Collision _key)
+    private void OnTriggerEnter(Collider other)
     {
         Debug.Log("Key detected");
         
-        if (doorOpen == false)
+        if (doorOpen == false && other.GameObject() == _key.GameObject())
         {
             doorOpen = true;
             StartCoroutine(Open());
