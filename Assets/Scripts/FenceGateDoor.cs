@@ -34,7 +34,7 @@ public class FenceGateDoor : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Key detected");
+        //Debug.Log("Key detected");
         
         if (doorOpen == false && other.GameObject() == _key.GameObject())
         {

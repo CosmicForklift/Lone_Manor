@@ -16,7 +16,7 @@ public class SafeNumManager : MonoBehaviour
     void Start()
     {
         canvasText.text = "" + numDisplay;
-        Debug.Log(canvasText.text);
+       // Debug.Log(canvasText.text);
     }
 
     
