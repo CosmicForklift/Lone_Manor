@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
+
 public class AuthorityManager : NetworkBehaviour
 {
     //This method needs to check if the player is authorized to use the object
@@ -10,7 +11,7 @@ public class AuthorityManager : NetworkBehaviour
 
     private NetworkObject _Network;
 
-    
+    private ulong newOwnerID = 1;
     
     // Start is called before the first frame update
     void Start()
@@ -30,12 +31,24 @@ public class AuthorityManager : NetworkBehaviour
         }
     }
 
+    
+    //This method can be called by either client and will be sent to the server side 
+    //This method then needs to differentiate between which player is grabbing the object
+    //and set that to the owner 
+    [Rpc(SendTo.Server)] 
+    public void messageRpc()
+    {
+        Debug.Log("RPC");
+    }
+    
+   
+    
     public void Authorize()
     {
         Debug.Log("Authorize has been called");
-        _Network.ChangeOwnership(1);
-        Debug.Log("Ownership changed to 1");
-      
+        _Network.ChangeOwnership(newOwnerID);
+        Debug.Log("Ownership changed to " + newOwnerID);
+       messageRpc();
     }
     
 }

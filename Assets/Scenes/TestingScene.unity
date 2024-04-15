@@ -9808,7 +9808,7 @@ PrefabInstance:
     - target: {fileID: 5979320131817571482, guid: f1d016b305ab3594d9fea2092ee3791e,
         type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Authorize
+      value: messageRpc
       objectReference: {fileID: 0}
     - target: {fileID: 5979320131817571482, guid: f1d016b305ab3594d9fea2092ee3791e,
         type: 3}
