@@ -11,7 +11,10 @@ public class AuthorityManager : NetworkBehaviour
 
     private NetworkObject _Network;
 
-    private ulong newOwnerID = 1;
+    
+    //Player1 = 0
+    //Player2 = 1
+    private ulong playerId = 0;
     
     // Start is called before the first frame update
     void Start()
@@ -39,16 +42,37 @@ public class AuthorityManager : NetworkBehaviour
     public void messageRpc()
     {
         Debug.Log("RPC");
+        
+        
+        if (IsOwner)
+        {
+            Debug.Log("This is the owner of the object");
+        }
+       /* else
+        {
+            Debug.Log("Not the owner picked up the object, will make them the owner");
+            if (playerId == 1)
+            {
+                playerId = 0;
+                _Network.ChangeOwnership(playerId);
+            }
+            else
+            {
+                playerId = 1;
+                _Network.ChangeOwnership(playerId);
+            }
+        }*/
+       
     }
     
    
-    
+    /*
     public void Authorize()
     {
         Debug.Log("Authorize has been called");
         _Network.ChangeOwnership(newOwnerID);
         Debug.Log("Ownership changed to " + newOwnerID);
        messageRpc();
-    }
+    }*/
     
 }
