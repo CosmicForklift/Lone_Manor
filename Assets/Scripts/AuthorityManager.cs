@@ -14,13 +14,13 @@ public class AuthorityManager : NetworkBehaviour
     
     //Player1 = 0
     //Player2 = 1
-    private ulong playerId = 0;
+    private ulong playerId = 1;
     
     // Start is called before the first frame update
     void Start()
     {
         _Network = GetComponent<NetworkObject>();
-        Debug.Log(_Network.NetworkObjectId);
+        _Network.ChangeOwnership(playerId);
         
         
     }
@@ -28,43 +28,54 @@ public class AuthorityManager : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (IsOwner)
-        {
-            Debug.Log("This is the owner");
-        }
+       
     }
 
     
     //This method can be called by either client and will be sent to the server side 
     //This method then needs to differentiate between which player is grabbing the object
     //and set that to the owner 
-    [Rpc(SendTo.Server)] 
+    [Rpc(SendTo.Me)] 
     public void messageRpc()
     {
-        Debug.Log("RPC");
+        messageLogRpc();
         
         
-        if (IsOwner)
+        if (!IsOwner)
         {
-            Debug.Log("This is the owner of the object");
+            serverOverideRpc();
         }
-       /* else
+        else
         {
-            Debug.Log("Not the owner picked up the object, will make them the owner");
-            if (playerId == 1)
-            {
-                playerId = 0;
-                _Network.ChangeOwnership(playerId);
-            }
-            else
-            {
-                playerId = 1;
-                _Network.ChangeOwnership(playerId);
-            }
-        }*/
-       
+            Debug.Log("You own the gameobject");
+            //Debug.Log("We are gonna change that");
+             //_Network.ChangeOwnership(1);
+        }
+    }
+
+    [Rpc(SendTo.Server)]
+    private void messageLogRpc()
+    {
+        Debug.Log("Rpc called in some way");
     }
     
+    [Rpc(SendTo.Server)]
+    public void serverOverideRpc()
+    {
+        Debug.Log("This is not the owner of the object, lets change that");
+        if (playerId == 1)
+        {
+            playerId = 0;
+            _Network.ChangeOwnership(playerId);
+        }
+        else
+        { 
+            playerId = 1;
+            _Network.ChangeOwnership(playerId);
+        }
+        Debug.Log("Server changed object authority");
+        
+    }
    
     /*
     public void Authorize()

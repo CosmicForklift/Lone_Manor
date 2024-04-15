@@ -31,7 +31,7 @@ public class NetworkPlayer : NetworkBehaviour
     
     private void Start()
     {
-        Debug.LogError("This is the clientID: " + ClientID);
+        //Debug.LogError("This is the clientID: " + ClientID);
         
     }
 
