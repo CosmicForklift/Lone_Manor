@@ -15,6 +15,8 @@ public class FenceGateDoor : MonoBehaviour
 
     public GameObject _axisRight;
 
+    public AudioSource source;
+
     private bool doorOpen = false;
 
     private float rotationSpeed = 0f;
@@ -47,10 +49,12 @@ public class FenceGateDoor : MonoBehaviour
  
     private IEnumerator Open()
     {
+        source.Play();
         rotationSpeed = 90f;
         yield return new WaitForSeconds(1f);
         rotationSpeed = 0f;
         Destroy(gameObject);
+        Destroy(source,3);
     }
     
 }
