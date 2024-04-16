@@ -13,6 +13,10 @@ public class NetworkPlayer : NetworkBehaviour
 
     public Renderer[] meshToDisable;
 
+   
+    public ulong ClientID { get; set; }
+    
+    
     public override void OnNetworkSpawn()
     {
         base.OnNetworkSpawn();
@@ -27,7 +31,7 @@ public class NetworkPlayer : NetworkBehaviour
     
     private void Start()
     {
-        
+        //Debug.LogError("This is the clientID: " + ClientID);
         
     }
 

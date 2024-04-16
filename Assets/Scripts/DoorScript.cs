@@ -22,7 +22,7 @@ public class DoorScript : MonoBehaviour
     void Start()
     {
         //_axisObject = GetComponent<Transform>();
-        Debug.Log("The key's ID is " + _key.GetInstanceID());
+       // Debug.Log("The key's ID is " + _key.GetInstanceID());
     }
 
     // Update is called once per frame
@@ -38,7 +38,7 @@ public class DoorScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("THe ID of other is " + other.GetInstanceID());
+        //Debug.Log("THe ID of other is " + other.GetInstanceID());
        // if (other.CompareTag("Key"))
             if (other.GameObject() == _key.GameObject())
         {
