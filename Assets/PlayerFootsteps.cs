@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Unity.VisualScripting.Member;
 
 public class PlayerFootsteps : MonoBehaviour
 {
@@ -13,10 +14,13 @@ public class PlayerFootsteps : MonoBehaviour
 
     private void Awake()
     {
+        source1 = GetComponent<AudioSource>();
+        source2 = GetComponent<AudioSource>();
+        source3 = GetComponent<AudioSource>();
         soundTrigger = GetComponent<Collider>();
     }
 
-    private void onCollisionEnter (Collider collider)
+    private void OnTriggerEnter (Collider collider)
     {
         if (collider.gameObject.tag == "Grass")
         {

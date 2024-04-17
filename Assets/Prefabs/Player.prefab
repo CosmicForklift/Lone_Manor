@@ -1093,6 +1093,7 @@ GameObject:
   - component: {fileID: 6794016876643507233}
   - component: {fileID: 1232852826696567335}
   - component: {fileID: 549572604079571246}
+  - component: {fileID: 1910044599574327576}
   m_Layer: 0
   m_Name: Player Footsteps
   m_TagString: Untagged
@@ -1109,7 +1110,7 @@ Transform:
   m_GameObject: {fileID: 6764479499540438789}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.3078766, y: -2.7156749, z: 7.539772}
+  m_LocalPosition: {x: 0, y: 0, z: -0.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1418,6 +1419,27 @@ MonoBehaviour:
   source1: {fileID: 8473372954881565519}
   source2: {fileID: 6794016876643507233}
   source3: {fileID: 0}
+--- !u!65 &1910044599574327576
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6764479499540438789}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7100218374883304358
 GameObject:
   m_ObjectHideFlags: 0

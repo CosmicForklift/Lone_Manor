@@ -2222,10 +2222,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1232852826696567335, guid: 34de177b8dbbeb64698697a6a4fb6e29,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1721464471519869645, guid: 34de177b8dbbeb64698697a6a4fb6e29,
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1910044599574327576, guid: 34de177b8dbbeb64698697a6a4fb6e29,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.4732857
+      objectReference: {fileID: 0}
+    - target: {fileID: 1910044599574327576, guid: 34de177b8dbbeb64698697a6a4fb6e29,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.73664314
       objectReference: {fileID: 0}
     - target: {fileID: 4684154456265204923, guid: 34de177b8dbbeb64698697a6a4fb6e29,
         type: 3}
@@ -2261,6 +2276,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LineLength
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6794016876643507233, guid: 34de177b8dbbeb64698697a6a4fb6e29,
+        type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8473372954881565519, guid: 34de177b8dbbeb64698697a6a4fb6e29,
+        type: 3}
+      propertyPath: Loop
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8782676042245652734, guid: 34de177b8dbbeb64698697a6a4fb6e29,
         type: 3}
@@ -18450,7 +18475,7 @@ GameObject:
   - component: {fileID: 1508108409}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Gravel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25128,6 +25153,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 442690856}
     m_Modifications:
+    - target: {fileID: 725001820380047356, guid: 1337cf7b1aa683d49a4c5a87fb48ee73,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.4065929
+      objectReference: {fileID: 0}
+    - target: {fileID: 725001820380047356, guid: 1337cf7b1aa683d49a4c5a87fb48ee73,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.29670355
+      objectReference: {fileID: 0}
     - target: {fileID: 5386104563526504772, guid: 1337cf7b1aa683d49a4c5a87fb48ee73,
         type: 3}
       propertyPath: m_Name
