@@ -16,7 +16,7 @@ public class DoorScript : MonoBehaviour
 
     public GameObject _door; 
 
-    private bool doorOpen = false; 
+    public bool doorOpen = false; 
     
     // Start is called before the first frame update
     void Start()
