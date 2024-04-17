@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Key
   - Axe
+  - Grass
+  - Gravel
   layers:
   - Default
   - TransparentFX
