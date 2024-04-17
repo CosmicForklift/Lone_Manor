@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
@@ -6,23 +7,32 @@ using UnityEngine;
 
 public class AuthorityManager : NetworkBehaviour
 {
-    //This method needs to check if the player is authorized to use the object
-    //If they do not have authority they need to transfer over authority to them 
-
+    //This script will set the starting ownership value to the appropriate player based upon where the item spawns
+    //This script will transfer ownership of the object upon contact with a Chute
+    
+    //Create the nessecary variable associated with network stuffs
     private NetworkObject _Network;
 
-    
+    //This value will be edited to whichever room the item starts in
+    //The object needs to have a base authority of whichever room its meant for
+    [SerializeField] private float startPlayer = 0f;
     //Player1 = 0
     //Player2 = 1
-    private ulong playerId = 1;
+    //By default this is set to 0
+    [SerializeField] private ulong playerId = 0;
+
+    //This variable will track whether the object is transitioning or not, this is to counteract the double transfer bug we've been having
+    private bool inTransit = false; 
+    
     
     // Start is called before the first frame update
     void Start()
     {
         _Network = GetComponent<NetworkObject>();
         _Network.ChangeOwnership(playerId);
-        
-        
+
+        //Make sure the playerID is associated with the proper player
+        playerId = Convert.ToUInt64(startPlayer);
     }
 
     // Update is called once per frame
@@ -31,6 +41,50 @@ public class AuthorityManager : NetworkBehaviour
        
     }
 
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Chute" && inTransit == false)  
+        {
+            inTransit = true; 
+            Debug.LogError("Chute DETECTED");
+            StartCoroutine(waiting());
+            
+            
+        }
+    }
+
+    [Rpc(SendTo.Server)]
+    public void AuthorityRpc()
+    {
+        Debug.LogError("Transfer authority . . .");
+        //yield return new WaitForSeconds(0.2f);
+        if (playerId == 1)
+        {
+            
+            playerId = 0;
+            //_Network.IsOwnedByServer.Equals(true);
+            _Network.ChangeOwnership(0);
+            playerId = 0;
+            
+        }
+        else
+        {
+            playerId = 1; 
+            _Network.ChangeOwnership(1); 
+            playerId = 1;
+        }
+        //networkLoad();
+        
+    }
+
+    IEnumerator waiting()
+    {
+        yield return new WaitForSeconds(2f);
+        inTransit = false;
+        AuthorityRpc();
+    }
+    
+    /*
     
     //This method can be called by either client and will be sent to the server side 
     //This method then needs to differentiate between which player is grabbing the object
@@ -75,7 +129,7 @@ public class AuthorityManager : NetworkBehaviour
         }
         Debug.Log("Server changed object authority");
         
-    }
+    } */
    
     /*
     public void Authorize()

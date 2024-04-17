@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
 public class ChuteScript : MonoBehaviour
@@ -24,6 +25,7 @@ public class ChuteScript : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         other.transform.position = _chuteDeposit.transform.position;
+        
         other.rigidbody.velocity = new Vector3(0, 0, 0);
     }
 }
