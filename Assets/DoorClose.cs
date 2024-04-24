@@ -5,8 +5,8 @@ using UnityEngine;
 public class DoorClose : MonoBehaviour
 {
 		
-	private collider closeCollider
-	public bool doorOpen
+	//private collider closeCollider;
+	public bool doorOpen;
 	
     // Start is called before the first frame update
     void Start()
@@ -23,15 +23,15 @@ public class DoorClose : MonoBehaviour
 			
 		StartCoroutine(Close());
 		doorOpen = false;
-		Destroy(this)
+		Destroy(this);
 		}
 		
     }
 	
 	private IEnumerator Close()
     {
-        rotationSpeed = -180f;
+        //rotationSpeed = -180f;
         yield return new WaitForSeconds(0.5f);
-        rotationSpeed = 0f;
+        //rotationSpeed = 0f;
     }
 }

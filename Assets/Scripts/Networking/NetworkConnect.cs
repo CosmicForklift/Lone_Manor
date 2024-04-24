@@ -13,7 +13,9 @@ using Unity.Services.Lobbies.Models;
 
 public class NetworkConnect : MonoBehaviour
 {
- 
+
+    private GameObject Player; 
+    
     public int maxConnection = 20;
     public UnityTransport transport;
 
@@ -27,6 +29,9 @@ public class NetworkConnect : MonoBehaviour
 
     public async void Create()
     {
+        Player = GameObject.Find("Player");
+        Player.transform.position = new Vector3(-15, 16, 110);
+        
         Allocation allocation = await RelayService.Instance.CreateAllocationAsync(maxConnection);
         string newJoinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
         
@@ -51,6 +56,9 @@ public class NetworkConnect : MonoBehaviour
 
     public async void Join()
     {
+        Player = GameObject.Find("Player");
+        Player.transform.position = new Vector3(-5, 16, 110);
+        
         currentLobby = await Lobbies.Instance.QuickJoinLobbyAsync();
         string relayJoinCode = currentLobby.Data["JOIN_CODE"].Value;
 

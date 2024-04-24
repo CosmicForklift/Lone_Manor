@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.Windows.WebCam;
 
 
 public class AuthorityManager : NetworkBehaviour
@@ -22,29 +23,36 @@ public class AuthorityManager : NetworkBehaviour
     [SerializeField] private ulong playerId = 0;
 
     //This variable will track whether the object is transitioning or not, this is to counteract the double transfer bug we've been having
-    private bool inTransit = false; 
-    
+    private bool inTransit = false;
+
+    //Keep checking state of the object
+    private bool StartCheck = true; 
     
     // Start is called before the first frame update
     void Start()
     {
         _Network = GetComponent<NetworkObject>();
-        _Network.ChangeOwnership(playerId);
+        //_Network.ChangeOwnership(playerId);
 
         //Make sure the playerID is associated with the proper player
-        playerId = Convert.ToUInt64(startPlayer);
+        //playerId = Convert.ToUInt64(startPlayer);
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+        /*
+        if (StartCheck == true)
+        {
+            _Network.ChangeOwnership(Convert.ToUInt64(startPlayer));
+        }*/
     }
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "Chute" && inTransit == false)  
+        if (other.gameObject.tag == "Chute" && inTransit == false)
         {
+            StartCheck = false; 
             inTransit = true; 
             Debug.LogError("Chute DETECTED");
             StartCoroutine(waiting());
