@@ -22,6 +22,12 @@ public class AuthorityManager : NetworkBehaviour
     //By default this is set to 0
     [SerializeField] private ulong playerId = 0;
 
+    
+    
+    [SerializeField] private NetworkInitiator _NetInit;
+    private bool hasInitialAuthorityBeenSet = false; 
+    
+    
     //This variable will track whether the object is transitioning or not, this is to counteract the double transfer bug we've been having
     private bool inTransit = false;
 
@@ -35,17 +41,18 @@ public class AuthorityManager : NetworkBehaviour
         //_Network.ChangeOwnership(playerId);
 
         //Make sure the playerID is associated with the proper player
-        //playerId = Convert.ToUInt64(startPlayer);
+        playerId = Convert.ToUInt64(startPlayer);
     }
 
     // Update is called once per frame
     void Update()
     {
-        /*
-        if (StartCheck == true)
+        if (!hasInitialAuthorityBeenSet && _NetInit.setObjectStatus)
         {
-            _Network.ChangeOwnership(Convert.ToUInt64(startPlayer));
-        }*/
+            _Network.ChangeOwnership(playerId);
+            //This has been set and this will no longer trigger
+            hasInitialAuthorityBeenSet = true; 
+        }
     }
 
     private void OnCollisionEnter(Collision other)

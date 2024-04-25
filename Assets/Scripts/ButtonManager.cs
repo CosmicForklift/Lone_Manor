@@ -1,9 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
-public class ButtonManager : MonoBehaviour
+public class ButtonManager : NetworkBehaviour
 {
 
     private bool pressed = false;
@@ -29,7 +30,7 @@ public class ButtonManager : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("It worked less!!!!!");
-        buttonPressed();
+        buttonPressedRPC();
         if (other.CompareTag("Player"))
         {
             Debug.Log("It worked!!!!!");
@@ -39,10 +40,11 @@ public class ButtonManager : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         Debug.Log(other);
-       buttonPressed();
+       buttonPressedRPC();
     }
-
-    private void buttonPressed()
+    
+    [Rpc(SendTo.ClientsAndHost)]
+    private void buttonPressedRPC()
     {
          if (pressed == false)
                 {

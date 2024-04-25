@@ -2,11 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
+using Unity.Netcode;
 using Unity.VisualScripting;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
-public class DoorScript : MonoBehaviour
+public class DoorScript : NetworkBehaviour
 {
     private float rotationSpeed = 0f;
 
@@ -42,21 +43,28 @@ public class DoorScript : MonoBehaviour
        // if (other.CompareTag("Key"))
             if (other.GameObject() == _key.GameObject())
         {
-            
-                Debug.Log("The ID's are the same");
+            DoorRPC();
                 
-                if (doorOpen == false)
-                {
-                                                        
-                                Debug.Log("Key detected");
-                                doorOpen = true;
-                                StartCoroutine(Open());
-                                Destroy(_key);
-                }
             
         } 
     }
 
+    [Rpc(SendTo.ClientsAndHost)]
+    public void DoorRPC()
+    {
+        Debug.Log("The ID's are the same");
+                        
+                        if (doorOpen == false)
+                        {
+                                                                
+                                        Debug.Log("Key detected");
+                                        doorOpen = true;
+                                        StartCoroutine(Open());
+                                        Destroy(_key);
+                        }
+    }
+    
+    
     /*
                 */
     

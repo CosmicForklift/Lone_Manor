@@ -13,7 +13,8 @@ using Unity.Services.Lobbies.Models;
 
 public class NetworkConnect : MonoBehaviour
 {
-
+    [SerializeField] private NetworkInitiator _NetInit; 
+    
     private GameObject Player; 
     
     public int maxConnection = 20;
@@ -31,6 +32,8 @@ public class NetworkConnect : MonoBehaviour
     {
         Player = GameObject.Find("Player");
         Player.transform.position = new Vector3(-15, 16, 110);
+        
+        _NetInit.Initiate();
         
         Allocation allocation = await RelayService.Instance.CreateAllocationAsync(maxConnection);
         string newJoinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
