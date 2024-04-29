@@ -95,8 +95,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.0284735, y: 1.2071149, z: 1.0220608}
+  m_Center: {x: -0.003257235, y: -0.000036768608, z: 0.00000015894568}
 --- !u!1 &162871717189211859
 GameObject:
   m_ObjectHideFlags: 0
@@ -192,8 +192,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.0354873, y: 1.108433, z: 1.0286691}
+  m_Center: {x: -0.013310393, y: 0.00046685335, z: 0.0033035278}
 --- !u!1 &677369720352709240
 GameObject:
   m_ObjectHideFlags: 0
@@ -290,8 +290,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.019549, y: 2, z: 1.0399846}
+  m_Center: {x: 0.006923776, y: 0.0000000066574306, z: 0.0026300412}
 --- !u!1 &738111010693690691
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,7 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3190008252
+  GlobalObjectIdHash: 741020351
   InScenePlacedSourceGlobalObjectIdHash: 668958238
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -543,8 +543,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.0418828, y: 1.1570688, z: 1.0245906}
+  m_Center: {x: 0.0032984016, y: -0.02454741, z: 0.0052513275}
 --- !u!1 &6013349236263927519
 GameObject:
   m_ObjectHideFlags: 0
@@ -642,8 +642,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.4609432, y: 1.0351986, z: 1.0671916}
+  m_Center: {x: -0.2212791, y: 0.0062259864, z: -0.00383331}
 --- !u!114 &6879917691396623362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -670,7 +670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 172809070
+  GlobalObjectIdHash: 741020351
   InScenePlacedSourceGlobalObjectIdHash: 668958238
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -774,8 +774,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.0172845, y: 1.1393459, z: 1.0220484}
+  m_Center: {x: 0.004807097, y: 0.0000004771056, z: 0.0023775098}
 --- !u!1 &7734736978747130028
 GameObject:
   m_ObjectHideFlags: 0
@@ -871,8 +871,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.0364089, y: 1.1681185, z: 1.0073564}
+  m_Center: {x: -0.0029105358, y: -0.06567129, z: -0.005880356}
 --- !u!1 &7939902688842214335
 GameObject:
   m_ObjectHideFlags: 0
@@ -971,8 +971,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.0258627, y: 1.0195507, z: 1.0291166}
+  m_Center: {x: -0.0007648468, y: -0.0023912787, z: -0.0023913383}
 --- !u!114 &2042530166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -985,7 +985,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2867903621
+  GlobalObjectIdHash: 741020351
   InScenePlacedSourceGlobalObjectIdHash: 668958238
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
