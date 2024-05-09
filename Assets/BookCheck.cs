@@ -12,6 +12,8 @@ public class BookCheck : MonoBehaviour
     [SerializeField] private GameObject _book;
     [SerializeField] private GameObject _box;
 
+    public bool bookCheck = false; 
+    
     private colorController _colorController;
 
     private void Awake()
@@ -27,7 +29,7 @@ public class BookCheck : MonoBehaviour
     {
         if (other.GameObject() == _book.GameObject())
         {
-            
+            bookCheck = true; 
             _colorController.colorChangeGreen();
             
         }
@@ -38,7 +40,7 @@ public class BookCheck : MonoBehaviour
     {
         if (other.GameObject() == _book.GameObject())
         {
-            
+            bookCheck = false; 
             _colorController.colorChangeRed();
             
         }
